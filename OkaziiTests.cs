@@ -9,7 +9,7 @@ using System.Threading;
 namespace Proiect1TPS
 {
     [TestClass]
-    public class TemuTests
+    public class OkaziiTests
     {
         private IWebDriver driver;
         private LoginPage loginPage;
