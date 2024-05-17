@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageObjectModel\CookieConsent.cs" />
+    <Compile Include="PageObjectModel\HelpPage.cs" />
     <Compile Include="PageObjectModel\LogoutPage.cs" />
     <Compile Include="PageObjectModel\MenuItems.cs" />
     <Compile Include="PageObjectModel\MenuItemsBeforeSignIn.cs" />

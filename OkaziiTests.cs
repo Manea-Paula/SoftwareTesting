@@ -17,6 +17,7 @@ namespace Proiect1TPS
         private CookieConsent cookieConsent;
         private MenuItemsBeforeSignIn menuItemsBeforeSignIn;
         private SearchParticularItem searchParticularItem;
+        private HelpPage helpPage;
         
 
         [TestInitialize]
@@ -33,6 +34,7 @@ namespace Proiect1TPS
             logoutPage = new LogoutPage(driver);
             menuItemsBeforeSignIn = new MenuItemsBeforeSignIn(driver);
             searchParticularItem = new SearchParticularItem(driver);
+            helpPage = new HelpPage(driver);
 
             cookieConsent.GoToMenuAfterCookieAccept();
         }
@@ -75,6 +77,12 @@ namespace Proiect1TPS
             Thread.Sleep(5000);
         }
 
+        [TestMethod]
+        public void HelpContact()
+        {
+            helpPage.GoToHelp();
+            
+        }
 
 
         [TestCleanup]

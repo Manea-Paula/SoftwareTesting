@@ -19,6 +19,7 @@ namespace Proiect1TPS.PageObjectModel
         }
 
         public IWebElement btnConsent => driver.FindElement(By.XPath("//button[@id='onetrust-accept-btn-handler']"));
+        
 
         public MenuItemsBeforeSignIn GoToMenuAfterCookieAccept()
         {
