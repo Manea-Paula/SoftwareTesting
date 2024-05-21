@@ -23,18 +23,30 @@ namespace Proiect1TPS.PageObjectModel
         
 
         public IWebElement buttonHelp => driver.FindElement(By.XPath("//div[@class='help-item d-inline']/a"));
-        public IWebElement formHelpLink => driver.FindElement(By.XPath("//div[@class='row']/nav[@role='navigation']/a[text()='Formular ajutor']"));
-      //  public IWebElement ReasonDropdown => driver.FindElement(By.CssSelector("select[name='n_pb']"));
-        public IWebElement btnConsentHelpForm => driver.FindElement(By.Id("cn-close-notice"));
+        //public IWebElement formHelpLink => driver.FindElement(By.XPath("//div[@class='row']/nav[@role='navigation']/a[text()='Formular ajutor']"));
+        //public IWebElement ReasonDropdown => driver.FindElement(By.CssSelector("select[name='n_pb']"));
+        public IWebElement SearchText => driver.FindElement(By.XPath("//input[@name='s']"));
+        public IWebElement SearchButton => driver.FindElement(By.XPath("//button[@class='btn btn-primary']"));
+        //public IWebElement btnConsentHelpForm => driver.FindElement();
+        public IWebElement TermsButton => driver.FindElement(By.XPath("//a[@title='Permanent Link to Termeni și Condiții']"));
+        public IWebElement ClauzeGenerale => driver.FindElement(By.XPath("//a[@href='#statutul1']"));
 
         public void GoToHelp()
         {
             Thread.Sleep(2000);
             buttonHelp.Click();
-            Thread.Sleep(3000);
-           
-            btnConsentHelpForm.Click();
-            formHelpLink.Click();
+            Thread.Sleep(2000);
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            SearchText.SendKeys("Termeni și Condiții");
+            SearchButton.Click();
+            Thread.Sleep(2000);
+            TermsButton.Click();
+            Thread.Sleep(2000);
+            ClauzeGenerale.Click();
+            Thread.Sleep(2000);
+            //btnSell.Click();
+            //btnConsentHelpForm.Click();
+            //formHelpLink.Click();
 
         }
 

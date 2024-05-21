@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Proiect1TPS.PageObjectModel
     {
 
         private IWebDriver driver;
+        Actions actions;
 
         public LogoutPage(IWebDriver browser)
         {
             driver = browser;
+            actions = new Actions(driver);
         }
 
         public IWebElement buttonList => driver.FindElement(By.XPath("//div[@class='my-account inline-box d-inline with-notifier']"));
@@ -29,11 +32,12 @@ namespace Proiect1TPS.PageObjectModel
         {
 
             Thread.Sleep(7000);
-            buttonList.Click();
-            Thread.Sleep(2000);
-            settingsList.ElementAt(2).Click();
+            //buttonList.Click();
+            actions.MoveToElement(buttonList).Perform();
+            //Thread.Sleep(5000);
+            settingsList.ElementAt(13).Click();
           //  bttnLogout.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
         }
     }
 }
