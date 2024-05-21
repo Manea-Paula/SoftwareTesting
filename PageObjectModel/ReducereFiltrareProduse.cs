@@ -46,7 +46,6 @@ namespace Proiect1TPS.PageObjectModel
         public IWebElement GetLocalitateSearchInput() => wait.Until(driver => driver.FindElement(By.XPath("(//div[@class='bootstrap-select-searchbox']//input[@type='text'])[2]")));
         public IWebElement GetIasiLocalitateOption() => wait.Until(driver => driver.FindElement(By.XPath("//li[@rel='184']//a")));
 
-        public IWebElement GetLivrareGratuitaCheckbox() => wait.Until(driver => driver.FindElement(By.XPath("//div[@id='livrare_gratuita']//label[@class='checkbox']")));
         public IWebElement GetCuFacturaCheckbox() => wait.Until(driver => driver.FindElement(By.XPath("//label[contains(@onclick, 'invoice=1')]")));
         public IWebElement GetCuGarantieCheckbox() => wait.Until(driver => driver.FindElement(By.XPath("//label[contains(@onclick, 'warranty=1')]")));
         //public IWebElement GetPoateFiReturnatCheckbox() => wait.Until(driver => driver.FindElement(By.XPath("//label[contains(@onclick, 'poate_fi_returnat=1')]")));

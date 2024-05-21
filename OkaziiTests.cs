@@ -20,7 +20,7 @@ namespace Proiect1TPS
         private HelpPage helpPage;
         private AddProductToFavorite favouriteProduct;
         private RemoveProductFromFavorite productToRenove;
-        
+        private AddProductToCart addProductToCart;
 
         [TestInitialize]
         public void Setup()
@@ -39,6 +39,7 @@ namespace Proiect1TPS
             helpPage = new HelpPage(driver);
             favouriteProduct = new AddProductToFavorite(driver);
             productToRenove = new RemoveProductFromFavorite(driver);
+            addProductToCart = new AddProductToCart(driver);
             cookieConsent.GoToMenuAfterCookieAccept();
         }
 
@@ -72,12 +73,14 @@ namespace Proiect1TPS
         }
 
         [TestMethod]
-        public void SearchProductAndCustomize()
+        public void SearchAndAddToCart()
         {
             searchParticularItem.SearchProductInKeyboardBar(Resources.product);
             Thread.Sleep(1000);
             searchParticularItem.CustomizeSearch();
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
+            addProductToCart.AddToCart();
+            Thread.Sleep(2000);
         }
 
         [TestMethod]
@@ -86,6 +89,7 @@ namespace Proiect1TPS
             helpPage.GoToHelp();
             
         }
+
         [TestMethod]
         public void FavoriteProduct()
         {
@@ -134,7 +138,7 @@ namespace Proiect1TPS
             Thread.Sleep(2000);
             loginPage.SignInAccount(Resources.email, Resources.password);
             Thread.Sleep(2000);
-            var productFromCatalog = new Proiect1TPS.PageObjectModel.ProductFromCatalog(driver);
+            var productFromCatalog = new ProductFromCatalog(driver);
             productFromCatalog.ClickCatalogOkazii();
             Thread.Sleep(2000);
             productFromCatalog.ClickLaptopImage();
@@ -161,9 +165,6 @@ namespace Proiect1TPS
             Thread.Sleep(2000);
 
             productFilterPage.SelectLocalizareIasi();
-            Thread.Sleep(2000);
-
-            productFilterPage.BifeazaCheckbox(productFilterPage.GetLivrareGratuitaCheckbox());
             Thread.Sleep(2000);
 
             productFilterPage.BifeazaCheckbox(productFilterPage.GetCuFacturaCheckbox());
